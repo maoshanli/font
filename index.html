@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<meta charset="UTF8"/>
+		<link href="css/main.css" type="text/css" rel="stylesheet"/>
+	  <!-- <script src="js/main.js">
+		</script>
+		-->
+	</head>
+	<body>
+		<header>
+			<img src="images/top.png" alt="顶部图片"/>
+		</header>
+		<div class="menu">
+			<ul id="nav">
+				<li class="on">
+					<a href="http://www.yjsc.wust.edu.cn/index.aspx">首&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=18">机构简介</a>
+					<ul class="nav-two">
+						<li>
+							<a href="http://www.yjsc.wust.edu.cn/Category.aspx?id=18">概况</a>
+						</li>
+						<li>
+							<a href="http://www.yjsc.wust.edu.cn/Article.aspx?ID=1861">机构设置</a>
+						</li>
+						<li>
+							<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=20">管理职能</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=21">招生信息</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=72">就业指导</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=28">培养教学</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=33">学科建设</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=38">学位与导师</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=44">非全日制教育</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=48">研究生工作</a>
+				</li>
+				<li>
+					<a href="http://www.yjsc.wust.edu.cn/Category.aspx?ID=87">学位点评估</a>
+				</li>
+			</ul>
+ 
+		</div>
+		<div class="banner">
+			<ul id="ban">
+				<li><img src="images/banner1.gif"/></li>
+				<li><img src="images/banner2.jpg"/></li>
+				<li><img src="images/banner3.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+	<script>	
+		//二级标题
+		var oNav=document.getElementById("nav");
+		var oLi=oNav.getElementsByTagName("li");
+		var num=0;
+		for (i=0;i<oLi.length;i++){
+			oLi[i].index=i;
+			oLi[i].onmouseover=function(){
+			num=this.index;
+			for(j=0;j<oLi.length;j++){
+				oLi[j].className="";
+			}
+			oLi[num].className="on";
+			console.log(num);
+			var oUl= oLi[num].getElementsByTagName("ul")[0];
+			if (oUl!=undefined)
+				oUl.style.display="block";
+			}
+			oLi[i].onmouseout=function(){
+			num=this.index;
+			var oUl= oLi[num].getElementsByTagName("ul")[0];
+			if (oUl!=undefined)
+				oUl.style.display="none";
+			}
+		}
+		
+		//banner图
+		var oBan=document.getElementById("ban");
+		var oBanli=oBan.getElementsByTagName("li");
+		//初始化
+		var num=0;//从第一幅图开始自动轮播
+		oBanli[num].style.opacity=1;
+	   setInterval(function(){
+	   num%=oBanli.length;
+	    for(var j=0;j<oBanli.length;j++){
+			oBanli[j].style.opacity=0;
+		  }
+		oBanli[num].style.opacity=1;
+		num++;
+	},3000)
+	</script>
+</html>
