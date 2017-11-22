@@ -3,6 +3,7 @@ body{
 	margin:0px auto;
 	width:968px;
 	background:#EEEEEE;
+	font-size:12px;
 	
 }
 header {
@@ -106,6 +107,7 @@ header .tag a{
 	width:182px;
 	float:left;
 	margin-top:5px;
+	font-size:14px;
 	border:solid 1px #ccc;
 }
  #search_text{
@@ -117,6 +119,7 @@ header .tag a{
 	background-color: #365695;
 	line-height:35px;
 }
+
 .wrap .w-left .info-top a{
 	display:block;
 	line-height:35px;
@@ -200,9 +203,24 @@ header .tag a{
 	position:relative;
 	font-size: 12px;
 }
+.wrap .w-right{
+	border:solid 1px #ccc;
+}
+.wrap .w-bottom{
+	position:relative;
+	width:774px;
+	height:40px;
+	border:solid 1px #ccc;
+	line-height:40px;
+    left:194px;
+	top:-7px;
+	clear:both;
+}
 .title{
+	padding-left:2px;
+	margin-top:14px;
 	border-bottom:solid 4px #365695;
-	margin-top:20px;
+
 }
 .n-title{
 	margin-top:0px;
@@ -230,16 +248,30 @@ header .tag a{
 }
 .content ul{
 	padding:0px;
-	margin:0px;
+    margin: 5px 10px;
 	list-style-type:none;
 }
 .content ul li{
-    margin-top: 5px;
-	margin-left:10px;
+	margin: 5px auto;
     border-bottom: dashed thin #CCC;
     line-height: 18px;
 }
-
+footer{
+	width:970px;
+	height:93px;
+	background-image:url("../images/footer.png");
+}
+footer p{
+	margin:0px;
+	text-align:center;
+}
+footer .cy{
+	font-size:14px;
+    line-height:20px;
+}
+footer .address{
+	font-size:12px;
+}
 .time{
 	position:absolute;
 	right:10px;
