@@ -220,6 +220,7 @@ header .tag a{
 	padding-left:2px;
 	margin-top:14px;
 	border-bottom:solid 4px #365695;
+	position:relative;
 
 }
 .n-title{

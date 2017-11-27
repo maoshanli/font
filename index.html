@@ -119,7 +119,7 @@
 				<div class="w-m-middle">
 					<div class="w-m-m-title title">
 					<span class="switch menu_on">招生政策</span>&nbsp;|&nbsp;<span class="switch">报考问答</span>
-					<span class="more"><a href="http://www.yjsc.wust.edu.cn/category.aspx?id=23" target="_blank">MORE+</a></span>
+					<a href="http://www.yjsc.wust.edu.cn/category.aspx?id=23" target="_blank" class="more">MORE+</a>
 					</div>
 					<div class="w-m-m-content content">
 						<ul id="zs_1">
@@ -211,6 +211,7 @@
 				<div class="w-m-bottom">
 					<div class="w-m-b-title title">
 					<span class="switch menu_on">学科动态</span>&nbsp;|&nbsp;<span class="switch">重点学科</span>
+					<a href="http://www.yjsc.wust.edu.cn/category.aspx?id=33" target="_blank" class="more">MORE+</a>
 					</div>
 					<div class="w-m-b-content content">
 						<ul id="xk_1">
@@ -280,6 +281,7 @@
 				<div class="notice">
 					<div class="n-title title">
 						<span class="switch menu_on">通知公告</span>&nbsp;|&nbsp;<span class="switch">学术活动</span>
+						<a href="http://www.yjsc.wust.edu.cn/category.aspx?id=51" target="_blank" class="more">MORE+</a>
 					</div>
 					<div class="n-content content">
 						<ul id="tz_1">
@@ -435,6 +437,7 @@
 				<div class="teach">
 					<div class="t-title title">
 						<span class="switch menu_on">教学信息</span>&nbsp;|&nbsp;<span class="switch">招聘信息</span>
+						<a href="http://www.yjsc.wust.edu.cn/category.aspx?id=72" target="_blank" class="more">MORE+</a>
 					</div>
 					<div class="t-content content">
 						<ul id="jx_1">
@@ -536,6 +539,7 @@
 				<div class="degree">
 					<div class="d-title title">
 						<span class="switch menu_on">学位服务</span>&nbsp;|&nbsp;<span class="switch">学位申请</span>
+						<a href="http://www.yjsc.wust.edu.cn/category.aspx?id=43" target="_blank" class="more">MORE+</a>
 					</div>
 					<div class="d-content content">
 						<ul id="xw_1">
@@ -627,14 +631,14 @@
 				</div>
 			</div>
 			<div class="w-bottom">
-				<select>
+				<select onchange="window.open(this.options[this.selectedIndex].value)">
 					<option selected="selected">-----------热点链接------------</option>
 					<option >武汉科技大学研究生毕业去向登记</option>
 					<option>武汉科技大学研究生创新基地</option>
 					<option>2013年硕士研究生招生专业目录说明</option>
 					<option>武汉科技大学2013年研究生招生新闻发布会</option>
 				</select>
-				<select>
+				<select onchange="window.open(this.options[this.selectedIndex].value);this.selectedIndex=0">
 					<option value="" selected="selected">-----------友情链接------------</option>
 					<option value="">教育部学位与研究生教育中心</option>
 					<option value="http://www.wust.edu.cn">武汉科技大学</option>
@@ -642,7 +646,7 @@
 					<option value="">全国工程硕士研究生教育网</option>
 					<option value="">中国科技论文在线</option><option value="">中国研究生人才网</option>
 				</select>
-				 <select>
+				 <select onchange="window.open(this.options[this.selectedIndex].value)">
 					<option value="" selected="selected">-----------校内链接---------</option>
 					<option value="">培养系统打印控件下载</option>
 					<option value="">导师个人信息</option>
@@ -698,5 +702,119 @@
 		oBanli[num].style.opacity=1;
 		num++;
 	},3000)
+	/*********************************************
+	内容切换
+	**********************************************/
+	//招生版块
+	var zTitle=document.getElementsByClassName("w-m-m-title")[0];
+	var zTag=zTitle.getElementsByTagName("span");
+	console.log(zTag);
+	var zContent=document.getElementsByClassName("w-m-m-content")[0];
+	var zUl=zContent.getElementsByTagName("ul");
+	console.log(zUl);
+	zOldIndex=0;
+	for (var i=0;i<zTag.length;i++)
+	{	
+		zTag[i].index=i;
+		zTag[i].onmouseover=function(){
+			zTag[zOldIndex].className="";
+			this.className="menu_on";
+			zOldIndex=this.index;
+			for (var j=0;j<zUl.length;j++)
+			for (var j=0;j<zUl.length;j++)
+			{
+				zUl[j].style.display="none";
+			}
+			zUl[this.index].style.display="block";
+		}
+	}
+	//学科版块
+	var xTitle=document.getElementsByClassName("w-m-b-title")[0];
+	var xTag=xTitle.getElementsByTagName("span");
+	console.log(xTag);
+	var xContent=document.getElementsByClassName("w-m-b-content")[0];
+	var xUl=xContent.getElementsByTagName("ul");
+	console.log(xUl);
+	xOldIndex=0;
+	for (var i=0;i<xTag.length;i++)
+	{	
+		xTag[i].index=i;
+		xTag[i].onmouseover=function(){
+			xTag[xOldIndex].className="";
+			this.className="menu_on";
+			xOldIndex=this.index;
+			for (var j=0;j<xUl.length;j++)
+			{
+				xUl[j].style.display="none";
+			}
+			xUl[this.index].style.display="block";
+		}
+	}
+	//通知版块
+	var nTitle=document.getElementsByClassName("n-title")[0];
+	var nTag=nTitle.getElementsByTagName("span");
+	console.log(nTag);
+	var nContent=document.getElementsByClassName("n-content")[0];
+	var nUl=nContent.getElementsByTagName("ul");
+	console.log(nUl);
+	nOldIndex=0;
+	for (var i=0;i<nTag.length;i++)
+	{	
+		nTag[i].index=i;
+		nTag[i].onmouseover=function(){
+			nTag[nOldIndex].className="";
+			this.className="menu_on";
+			nOldIndex=this.index;
+			for (var j=0;j<nUl.length;j++)
+			{
+				nUl[j].style.display="none";
+			}
+			nUl[this.index].style.display="block";
+		}
+	}
+	//教学版块
+	var tTitle=document.getElementsByClassName("t-title")[0];
+	var tTag=tTitle.getElementsByTagName("span");
+	console.log(tTag);
+	var tContent=document.getElementsByClassName("t-content")[0];
+	var tUl=tContent.getElementsByTagName("ul");
+	console.log(tUl);
+	tOldIndex=0;
+	for (var i=0;i<tTag.length;i++)
+	{	
+		tTag[i].index=i;
+		tTag[i].onmouseover=function(){
+			tTag[tOldIndex].className="";
+			this.className="menu_on";
+			tOldIndex=this.index;
+			for (var j=0;j<tUl.length;j++)
+			{
+				tUl[j].style.display="none";
+			}
+			tUl[this.index].style.display="block";
+		}
+	}
+	//学位版块
+	var mTitle=document.getElementsByClassName("d-title")[0];
+	var mTag=mTitle.getElementsByTagName("span");
+	console.log(mTag);
+	var mContent=document.getElementsByClassName("d-content")[0];
+	var mUl=mContent.getElementsByTagName("ul");
+	console.log(mUl);
+	mOldIndex=0;
+	for (var i=0;i<mTag.length;i++)
+	{	
+		mTag[i].index=i;
+		mTag[i].onmouseover=function(){
+			mTag[mOldIndex].className="";
+			this.className="menu_on";
+			mOldIndex=this.index;
+			for (var j=0;j<mUl.length;j++)
+			{
+				mUl[j].style.display="none";
+			}
+			mUl[this.index].style.display="block";
+		}
+	}
 	</script>
 </html>
